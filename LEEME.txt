@@ -1,0 +1,152 @@
+═══════════════════════════════════════════════════════════════════
+  🚀 INSTALADOR WEB WILOBU v2.1 - SÚPER RÁPIDO
+═══════════════════════════════════════════════════════════════════
+
+Esta es la forma MÁS RÁPIDA de instalar el firmware. Sin instaladores,
+sin Python, sin drivers complicados. TODO desde el navegador.
+
+
+═══════════════════════════════════════════════════════════════════
+📋 REQUISITOS:
+═══════════════════════════════════════════════════════════════════
+
+✅ Google Chrome, Microsoft Edge, Brave u Opera (navegadores Chromium)
+✅ Cable USB
+✅ Dispositivo Wilobu
+❌ NO funciona en Firefox o Safari (limitación del estándar Web Serial)
+
+
+═══════════════════════════════════════════════════════════════════
+⚡ OPCIÓN 1: USAR MI SERVIDOR WEB (LO MÁS RÁPIDO)
+═══════════════════════════════════════════════════════════════════
+
+Si yo (el desarrollador) publico este flasher en un servidor web,
+el cliente solo necesita:
+
+1. Abrir Chrome
+2. Ir a: https://tudominio.com/wilobu-flasher/
+3. Conectar el USB
+4. Hacer clic en "INSTALAR FIRMWARE"
+5. ¡LISTO! (30 segundos)
+
+
+═══════════════════════════════════════════════════════════════════
+⚡ OPCIÓN 2: SERVIDOR LOCAL (SI NO TIENES HOSTING)
+═══════════════════════════════════════════════════════════════════
+
+Si no tienes un servidor web, el cliente puede ejecutar un servidor
+local en su PC:
+
+PASO 1: Extraer el ZIP
+   Descomprime el archivo "wilobu_flasher_web_v2.1.zip"
+
+PASO 2: Ejecutar el servidor
+   Haz doble clic en: INICIAR_HTTPS.bat
+   (¡IMPORTANTE! Usa HTTPS, no el HTTP)
+
+PASO 3: Abrir Chrome
+   Ve a: https://localhost:8443
+   
+   Chrome dirá "Tu conexión no es privada" → Esto es NORMAL
+   Haz clic en: Avanzado → Acceder a localhost (no seguro)
+
+PASO 4: Instalar
+   • Conecta el ESP32 al USB
+   • Haz clic en "INSTALAR FIRMWARE"
+   • Selecciona el puerto COM
+   • Espera 30-60 segundos
+   • ¡LISTO!
+
+
+═══════════════════════════════════════════════════════════════════
+🌐 CÓMO PUBLICARLO EN LA WEB (PARA EL DESARROLLADOR)
+═══════════════════════════════════════════════════════════════════
+
+Si tienes un hosting web (GitHub Pages, Netlify, Vercel, etc.):
+
+1. Sube la carpeta FLASHER_WEB/ a tu servidor
+2. Envíale al cliente la URL directa
+3. El cliente solo abre Chrome, va a la URL, y flashea
+
+VENTAJAS:
+• El cliente NO descarga nada
+• NO necesita Python
+• NO necesita drivers (Chrome los maneja)
+• Funciona en Windows, Mac y Linux
+
+
+═══════════════════════════════════════════════════════════════════
+🔧 VENTAJAS vs MÉTODO TRADICIONAL (.bat):
+═══════════════════════════════════════════════════════════════════
+
+MÉTODO TRADICIONAL (INSTALAR_FIRMWARE.bat):
+❌ Requiere Python instalado
+❌ Requiere pyserial instalado
+❌ Puede fallar por permisos de Windows
+❌ Puede fallar por drivers USB
+❌ El cliente debe descargar todo el paquete
+⏱️ Tiempo: 5-10 minutos (si falla algo)
+
+MÉTODO WEB (Este):
+✅ NO requiere Python
+✅ NO requiere pyserial
+✅ Chrome maneja los permisos automáticamente
+✅ Chrome maneja los drivers USB (WebSerial API)
+✅ El cliente solo abre una URL (si está en la web)
+⏱️ Tiempo: 30 segundos
+
+
+═══════════════════════════════════════════════════════════════════
+🚨 LIMITACIONES:
+═══════════════════════════════════════════════════════════════════
+
+• Solo funciona en navegadores Chromium (Chrome, Edge, Brave, Opera)
+• Firefox y Safari NO soportan Web Serial API (aún)
+• Requiere HTTPS si está en un servidor web (o localhost en HTTP)
+
+
+═══════════════════════════════════════════════════════════════════
+📦 CONTENIDO DE ESTA CARPETA:
+═══════════════════════════════════════════════════════════════════
+
+index.html              -> La página web del instalador (HTML5)
+manifest.json           -> Configuración de ESP Web Tools
+firmware.bin            -> Tu firmware (binario principal)
+bootloader.bin          -> Bootloader de ESP32
+partitions.bin          -> Tabla de particiones
+boot_app0.bin           -> Configuración de arranque
+INICIAR_SERVIDOR.ps1    -> Script para servidor local (Windows)
+LEEME.txt               -> Este archivo
+
+
+═══════════════════════════════════════════════════════════════════
+🎯 RECOMENDACIÓN FINAL:
+═══════════════════════════════════════════════════════════════════
+
+Si tienes un dominio o GitHub Pages:
+   → Publica esta carpeta en la web (OPCIÓN 1)
+   → Envía la URL al cliente
+   → El cliente flashea en 30 segundos
+
+Si NO tienes hosting:
+   → Comprime esta carpeta en un ZIP
+   → Envíala al cliente
+   → El cliente ejecuta INICIAR_SERVIDOR.ps1 (OPCIÓN 2)
+   → Toma 2-3 minutos en total
+
+
+═══════════════════════════════════════════════════════════════════
+💡 BONUS: PUBLICAR EN GITHUB PAGES (GRATIS):
+═══════════════════════════════════════════════════════════════════
+
+1. Crea un repo en GitHub (ej. "wilobu-flasher")
+2. Sube esta carpeta
+3. Activa GitHub Pages en Settings
+4. Tu URL será: https://tuusuario.github.io/wilobu-flasher/
+5. Comparte esa URL con TODOS tus clientes
+
+VENTAJA: Un solo link para todos. Si actualizas el firmware,
+solo subes los nuevos .bin y todos ven la versión actualizada.
+
+
+═══════════════════════════════════════════════════════════════════

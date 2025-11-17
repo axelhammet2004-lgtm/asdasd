@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instalador Web Wilobu v2.1</title>
+    <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo h1 {
+            font-size: 2.5em;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .logo p {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .version-badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+        
+        .instructions {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 5px;
+        }
+        
+        .instructions h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .instructions ol {
+            margin-left: 20px;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .instructions li {
+            margin-bottom: 10px;
+        }
+        
+        .install-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        esp-web-install-button {
+            --esp-tools-button-color: #667eea;
+            --esp-tools-button-text-color: white;
+        }
+        
+        esp-web-install-button::part(button) {
+            font-size: 1.2em;
+            padding: 15px 40px;
+            border-radius: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        esp-web-install-button::part(button):hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            color: #856404;
+        }
+        
+        .warning strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            color: #155724;
+            display: none;
+        }
+        
+        .browser-support {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .browser-icons {
+            margin-top: 10px;
+        }
+        
+        .browser-icons span {
+            margin: 0 10px;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .logo h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>🛡️ Wilobu</h1>
+            <p>Instalador Web de Firmware</p>
+            <span class="version-badge">v2.1.0</span>
+        </div>
+        
+        <div class="instructions">
+            <h2>📋 Instrucciones (3 pasos):</h2>
+            <ol>
+                <li><strong>Conecta</strong> tu dispositivo Wilobu al puerto USB de tu computadora</li>
+                <li><strong>Asegúrate</strong> de que el interruptor del dispositivo esté en posición <strong>ON</strong></li>
+                <li><strong>Haz clic</strong> en el botón de abajo y selecciona el puerto COM que aparece</li>
+            </ol>
+        </div>
+        
+        <div class="warning">
+            <strong>⚠️ Importante:</strong>
+            Este instalador funciona SOLO en navegadores Chromium (Google Chrome, Microsoft Edge, Brave, Opera).
+            NO funciona en Firefox o Safari.
+        </div>
+        
+        <div class="install-section">
+            <esp-web-install-button manifest="./manifest.json">
+                <button slot="activate" style="
+                    background: #667eea;
+                    color: white;
+                    border: none;
+                    padding: 15px 40px;
+                    font-size: 1.2em;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    transition: all 0.3s ease;
+                ">
+                    🚀 INSTALAR FIRMWARE
+                </button>
+            </esp-web-install-button>
+        </div>
+        
+        <div class="success" id="successMessage">
+            <strong>✅ ¡Instalación Exitosa!</strong>
+            Tu dispositivo Wilobu ahora tiene el firmware v2.1.0. Puedes desconectarlo del USB y comenzar a usarlo con la App Wilobu.
+        </div>
+        
+        <div class="browser-support">
+            <p><strong>Navegadores Compatibles:</strong></p>
+            <div class="browser-icons">
+                <span>✅ Chrome</span>
+                <span>✅ Edge</span>
+                <span>✅ Brave</span>
+                <span>✅ Opera</span>
+            </div>
+            <div style="margin-top: 10px; color: #dc3545;">
+                <span>❌ Firefox</span>
+                <span>❌ Safari</span>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Detectar cuando se complete la instalación
+        document.querySelector('esp-web-install-button').addEventListener('state-changed', (event) => {
+            if (event.detail === 'FINISHED') {
+                document.getElementById('successMessage').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
