@@ -1,0 +1,189 @@
+═══════════════════════════════════════════════════════════════════
+  🚀 PUBLICAR WILOBU FLASHER EN GITHUB PAGES - GUÍA PASO A PASO
+═══════════════════════════════════════════════════════════════════
+
+El repositorio local ya está listo en:
+C:\Users\elbar\Desktop\wilobu-flasher
+
+Ahora necesitas crear el repositorio en GitHub y hacer push.
+
+
+═══════════════════════════════════════════════════════════════════
+OPCIÓN A: CREAR EL REPO DESDE LA WEB (MÁS FÁCIL)
+═══════════════════════════════════════════════════════════════════
+
+PASO 1: Crear el repositorio en GitHub
+───────────────────────────────────────────────────────────────────
+
+1. Abre tu navegador y ve a: https://github.com/new
+
+2. Configura el repositorio:
+   • Repository name: wilobu-flasher
+   • Description: "Wilobu Web Flasher - Instalador ESP32 desde navegador"
+   • Visibilidad: ✅ Public (IMPORTANTE: debe ser público para GitHub Pages gratis)
+   • ❌ NO marques "Add a README file"
+   • ❌ NO marques "Add .gitignore"
+   • ❌ NO marques "Choose a license"
+
+3. Haz clic en: "Create repository"
+
+
+PASO 2: Conectar tu repo local con GitHub
+───────────────────────────────────────────────────────────────────
+
+GitHub te mostrará una página con comandos. IGNORA esos comandos
+y ejecuta ESTOS en su lugar:
+
+Abre PowerShell y ejecuta:
+
+cd C:\Users\elbar\Desktop\wilobu-flasher
+git branch -M main
+git remote add origin https://github.com/ElBarSimson9593/wilobu-flasher.git
+git push -u origin main
+
+
+PASO 3: Activar GitHub Pages
+───────────────────────────────────────────────────────────────────
+
+1. En GitHub, ve a tu repo: https://github.com/ElBarSimson9593/wilobu-flasher
+
+2. Haz clic en: "Settings" (arriba a la derecha)
+
+3. En el menú izquierdo, haz clic en: "Pages"
+
+4. En "Source", selecciona:
+   • Branch: main
+   • Folder: / (root)
+
+5. Haz clic en: "Save"
+
+6. ¡LISTO! GitHub te mostrará la URL:
+   https://elbarsimson9593.github.io/wilobu-flasher/
+
+
+PASO 4: Esperar 2 minutos
+───────────────────────────────────────────────────────────────────
+
+GitHub tarda 1-2 minutos en compilar y publicar la página.
+Verás un mensaje verde que dice: "Your site is live at..."
+
+
+PASO 5: Probar
+───────────────────────────────────────────────────────────────────
+
+Abre Chrome y ve a:
+https://elbarsimson9593.github.io/wilobu-flasher/
+
+Deberías ver la página del instalador Wilobu.
+
+
+═══════════════════════════════════════════════════════════════════
+OPCIÓN B: USAR ESTE SCRIPT (MÁS RÁPIDO, PERO REQUIERE TOKEN)
+═══════════════════════════════════════════════════════════════════
+
+Si tienes un Personal Access Token de GitHub, puedes ejecutar:
+
+cd C:\Users\elbar\Desktop\wilobu-flasher
+.\PUBLICAR_GITHUB.ps1
+
+(Necesitarías crear ese script primero)
+
+
+═══════════════════════════════════════════════════════════════════
+📧 DESPUÉS DE PUBLICAR
+═══════════════════════════════════════════════════════════════════
+
+Una vez que esté publicado, envía este email a tu cliente:
+
+---
+Asunto: Instalador Web Wilobu v2.1 (30 segundos, sin descargas)
+
+Hola,
+
+Olvidá el instalador anterior. Esta es la forma MÁS RÁPIDA:
+
+**PASOS (30 segundos):**
+1. Abre Google Chrome
+2. Ve a: https://elbarsimson9593.github.io/wilobu-flasher/
+3. Conecta tu ESP32 al USB
+4. Haz clic en "INSTALAR FIRMWARE"
+5. Selecciona el puerto COM
+6. ¡LISTO!
+
+**VENTAJAS:**
+- NO necesita descargar nada
+- NO necesita instalar Python
+- NO necesita ejecutar scripts
+- Chrome hace todo automáticamente
+
+**REQUISITO:**
+- Google Chrome (o Microsoft Edge)
+
+Cualquier cosa, avisame.
+
+Saludos
+---
+
+
+═══════════════════════════════════════════════════════════════════
+🔄 ACTUALIZAR EL FIRMWARE EN EL FUTURO
+═══════════════════════════════════════════════════════════════════
+
+Cuando tengas una nueva versión del firmware:
+
+1. Copia los nuevos archivos .bin a:
+   C:\Users\elbar\Desktop\wilobu-flasher\
+
+2. Ejecuta:
+   cd C:\Users\elbar\Desktop\wilobu-flasher
+   git add *.bin
+   git commit -m "Actualizar firmware a v2.2"
+   git push
+
+3. Espera 1 minuto
+
+4. ¡TODOS tus clientes verán la nueva versión automáticamente!
+   (No necesitas enviar nada más)
+
+
+═══════════════════════════════════════════════════════════════════
+📊 COMPARACIÓN FINAL
+═══════════════════════════════════════════════════════════════════
+
+┌──────────────────────┬────────────────┬────────────────┐
+│                      │ Enviar ZIP     │ GitHub Pages   │
+├──────────────────────┼────────────────┼────────────────┤
+│ Cliente descarga ZIP │ ✅ Sí          │ ❌ No          │
+│ Cliente ejecuta .bat │ ✅ Sí          │ ❌ No          │
+│ Advertencia Chrome   │ ⚠️  Sí (HTTPS) │ ❌ No (SSL)    │
+│ Tiempo cliente       │ 3 minutos      │ 30 segundos    │
+│ Actualizar firmware  │ Enviar nuevo   │ Solo git push  │
+│                      │ ZIP a todos    │ (automático)   │
+│ Soporte múltiples    │ Difícil        │ Fácil (1 link) │
+│ clientes             │                │                │
+└──────────────────────┴────────────────┴────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════
+✅ RESUMEN DE COMANDOS (COPIA Y PEGA)
+═══════════════════════════════════════════════════════════════════
+
+# 1. Ir a: https://github.com/new
+#    Crear repo "wilobu-flasher" (público)
+
+# 2. Ejecutar en PowerShell:
+cd C:\Users\elbar\Desktop\wilobu-flasher
+git branch -M main
+git remote add origin https://github.com/ElBarSimson9593/wilobu-flasher.git
+git push -u origin main
+
+# 3. Ir a: https://github.com/ElBarSimson9593/wilobu-flasher/settings/pages
+#    Activar Pages: Branch "main", folder "/"
+
+# 4. Esperar 2 minutos
+
+# 5. Tu URL estará lista:
+#    https://elbarsimson9593.github.io/wilobu-flasher/
+
+
+═══════════════════════════════════════════════════════════════════
